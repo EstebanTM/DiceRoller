@@ -33,7 +33,6 @@ class MainActivity : ComponentActivity() {
                 ) {
                     DiceRollerApp()
                 }
-
             }
         }
     }
@@ -59,7 +58,7 @@ fun DiceWithButtonAndImage(modifier: Modifier = Modifier){
         5 -> R.drawable.dice_5
         else -> R.drawable.dice_6
     }
-    var d2 by remember { mutableStateOf(3)}
+    var d2 by remember { mutableStateOf(1)}
     val imageResourced2 = when(d2){
         1 -> R.drawable.dice_1
         2 -> R.drawable.dice_2
@@ -72,7 +71,7 @@ fun DiceWithButtonAndImage(modifier: Modifier = Modifier){
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Row(){
+        Row{
             Image(
                 painter = painterResource(imageResourced1),
                 contentDescription = d1.toString()
@@ -87,7 +86,7 @@ fun DiceWithButtonAndImage(modifier: Modifier = Modifier){
         )
         Button(
             onClick = {
-                d1 = (1..6).random();
+                d1 = (1..6).random()
                 d2 = (1..6).random()
             }
         ) {
